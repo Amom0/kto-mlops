@@ -1,8 +1,12 @@
 import boto3
+from cats_dogs_other.train.steps.extraction import extraction_from_annotation_file
+from cats_dogs_other.train.steps.split import random_split_train_evaluate_test_from_extraction
+from cats_dogs_other.train.steps.test import Inference, test_model
+from cats_dogs_other.train.steps.train_and_evaluate import train_and_evaluate_model
 
 s3_client = boto3.client(
     "s3",
-    endpoint_url="http://minio-api-blabla-dev.apps.sandbox-m3.666.p1.openshiftapps.com",
+    endpoint_url="http://minio-api-babla-dev.apps.sandbox-m3.666.p1.openshiftapps.com",
     aws_access_key_id="minio",
     aws_secret_access_key="minio123"
 )
@@ -24,7 +28,8 @@ split_ratio_test = 0.1
 
 random_split_train_evaluate_test_from_extraction(extract, classes, split_ratio_train,
                                                  split_ratio_evaluate, split_ratio_test,
-                                                 train_dir, evaluate_dir, test_dir, bucket_name, s3_client)
+                                                 train_dir, evaluate_dir, test_dir, bucket_name,
+                                                 "dataset/extract/", s3_client)
 
 
 model_filename = "final_model.h5"
