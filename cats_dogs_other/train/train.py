@@ -6,7 +6,7 @@ from steps.train_and_evaluate import train_and_evaluate_model
 
 s3_client = boto3.client(
     "s3",
-    endpoint_url="http://minio-api-babla-dev.apps.sandbox-m3.666.p1.openshiftapps.com",
+    endpoint_url="http://minio-api-amaury-glt-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com",
     aws_access_key_id="minio",
     aws_secret_access_key="minio123"
 )
