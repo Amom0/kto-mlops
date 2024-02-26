@@ -2,11 +2,14 @@ name: Cats and dogs CI/CD
 on: 
   push:
     branches:
-      - Agillot/step04
+      - Agillot/step04_eval
 
 jobs:
   train:
     runs-on: ubuntu-latest
+    env:
+      BATCH_SIZE: 32
+      EPOCHS: 10
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.11
